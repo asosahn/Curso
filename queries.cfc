@@ -27,7 +27,7 @@
   
 	
 	<cfquery name="asistentesQ"  maxrows="10">
-		select * from rsosa.colaboradores
+		select * from rsosa.colaboradores order by primer_nombre
 	</cfquery>
 	
 	<cfset colaboradores.data = estructura(asistentesQ)>

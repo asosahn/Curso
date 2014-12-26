@@ -12,7 +12,7 @@ $(function () {
             },
             success: function(data) {  
              console.log(data);
-             console.log(data.data.length);
+             // console.log(data.data.length);
 
              var html = '';
 
@@ -20,10 +20,10 @@ $(function () {
                 html += '<article>';
                 html += '<h2><strong>' + colaborador.primer_nombre + ' ' + colaborador.primer_apellido + '</strong></h2>';
                 html += '<p><strong>Código Colaborador:</strong> ' + colaborador.cod_colaborador + '</p>'
-                console.log(colaborador.primer_nombre);
+                // console.log(colaborador.primer_nombre);
                 html += '<h3>Hijos:</h3>';
                  $.each(colaborador.hijosA, function(index, hijo){
-                   console.log(hijo.primer_nombre + ' ' + hijo.primer_apellido);
+                   // console.log(hijo.primer_nombre + ' ' + hijo.primer_apellido);
 
                    html += '<ul>';
                     html += '<li>' + hijo.primer_nombre + ' ' + hijo.primer_apellido + '</li>'
@@ -46,7 +46,7 @@ $(function () {
                  html += '<h4>Autos:</h4>';
 
                 $.each(colaborador.autos, function(index, auto){
-                   console.log(auto.placa);
+                   // console.log(auto.placa);
 
                    html += '<ul>';
                     html += '<li>' + auto.placa + ' ' + auto.marca + ' ' + auto.modelo + '</li>'
