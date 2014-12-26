@@ -1,63 +1,48 @@
 $(function () {
-
+	
   $.ajax({
           	async: true,
             type: "POST",
-            url: "queries.cfc?method=asistentes",
-            // data: 'cedula=' + id + '&editsave=' + editsave + '&premioOption=' + $("#ddlPremioOption").val() + '&premioboleto=' + String($("#ddlPremio").val()) + "&turnocheck=" + Number($("#chk_turno").is(':checked')) + '&responsable=' + encodeURIComponent($("#txt_turno").val()),
+            url: "curso.cfc?method=hijos",
+           
             dataType: "json",
-            // crossDomain: true,
+           
             beforeSend: function(){
             
             },
             success: function(data) {  
+            	//data = JSON.parse(data);
              console.log(data);
-             // console.log(data.data.length);
-
-             var html = '';
-
-             $.each(data.data, function (index, colaborador) {
-                html += '<article>';
-                html += '<h2><strong>' + colaborador.primer_nombre + ' ' + colaborador.primer_apellido + '</strong></h2>';
-                html += '<p><strong>Código Colaborador:</strong> ' + colaborador.cod_colaborador + '</p>'
-                // console.log(colaborador.primer_nombre);
-                html += '<h3>Hijos:</h3>';
-                 $.each(colaborador.hijosA, function(index, hijo){
-                   // console.log(hijo.primer_nombre + ' ' + hijo.primer_apellido);
-
-                   html += '<ul>';
-                    html += '<li>' + hijo.primer_nombre + ' ' + hijo.primer_apellido + '</li>'
-                   html += '</ul>';
-
-                });
-
-                if (colaborador.equipo.length > 0){
-
-                html += '<h3>Equipo:</h3>';
-                  $.each(colaborador.equipo, function(index, equipo){
-                     html += '<ul>';
-                      html += '<li>' + equipo.primer_nombre + ' ' + equipo.primer_apellido + '</li>'
-                     html += '</ul>';
-
-                  });
-
-                }
-
-                 html += '<h4>Autos:</h4>';
-
-                $.each(colaborador.autos, function(index, auto){
-                   // console.log(auto.placa);
-
-                   html += '<ul>';
-                    html += '<li>' + auto.placa + ' ' + auto.marca + ' ' + auto.modelo + '</li>'
-                   html += '</ul>';
-
-                });
-
-               
-               html += '</article>';   
-             });
-               $("#contenido").html(html);
+           var html = '';
+           $.each(data, function(index, colaborador){
+            html += '<div id="' + colaborador.COD_COLABORADOR +'">';
+            html += '<h1>' + colaborador.PRIMER_NOMBRE + ' ' + colaborador.PRIMER_APELLIDO + '</h1>';
+            html += '<p><strong>' + colaborador.PUESTO + '</strong></p>';
+            	
+            	console.log(colaborador.PRIMER_NOMBRE + ' ' + colaborador.PRIMER_APELLIDO);
+            	html += '<h2>Hijos:</h2>';
+            	html += '<ul>';
+            	$.each(colaborador.HIJOST, function(index, hijos){
+            		console.log(hijos.PRIMER_NOMBRE + ' ' + hijos.PRIMER_APELLIDO);
+            		
+            		html += '<li>' + hijos.PRIMER_NOMBRE + ' ' + hijos.PRIMER_APELLIDO + '</li>';
+            			
+            		
+            	});
+            	html += '</ul>';
+            	html += '<h2>Autos:</h2>';
+            	
+            	html += '<ul>';
+            	$.each(colaborador.AUTOST, function(index, auto){
+            		console.log(auto.PLACA + ' ' + auto.MARCA);
+            		html += '<li>' + auto.PLACA + ' ' + auto.MARCA + '</li>';
+            	});
+            		html += '</ul>';
+            html+='</div>';
+            });
+			$("#contenido").html(html);
+			
+			
             },
             timeout: 10000,
             error: function(jqXHR, textStatus, ex) {
