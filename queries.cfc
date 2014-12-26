@@ -21,6 +21,29 @@
 </cffunction>
 
 
+
+
+
+
+
+
+
+
+
+
+<cffunction name="q2" access="remote" returntype="void" output="true" >
+	
+	<cfquery name="query">
+		select * from rsosa.colaboradores
+	</cfquery>
+	
+	<cfset seria = deserializeJSON(serializeJSON(query))>
+	
+	<cfdump var="#seria#" >
+	
+</cffunction>
+
+
 <cffunction name="asistentes" access="remote"  returntype="any" returnformat="JSON" output="true" >
 	
   <cftry>
@@ -68,7 +91,7 @@
   	    </cfoutput>
   	</cfcatch>
   </cftry>		
-<!---<cfdump var="#colaboradores#" >--->
+<cfdump var="#colaboradores#" >
 <cfreturn colaboradores>
 	
 </cffunction>
