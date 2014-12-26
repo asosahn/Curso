@@ -6,6 +6,7 @@ $(function () {
             url: "queries.cfc?method=asistentes",
             // data: 'cedula=' + id + '&editsave=' + editsave + '&premioOption=' + $("#ddlPremioOption").val() + '&premioboleto=' + String($("#ddlPremio").val()) + "&turnocheck=" + Number($("#chk_turno").is(':checked')) + '&responsable=' + encodeURIComponent($("#txt_turno").val()),
             dataType: "json",
+            // crossDomain: true,
             beforeSend: function(){
             
             },
@@ -59,10 +60,15 @@ $(function () {
                $("#contenido").html(html);
             },
             timeout: 10000,
-            error: function(String) {
-            	console.log(String);
-                                      
-            }            
+            error: function(jqXHR, textStatus, ex) {
+              alert(textStatus + "," + ex + "," + jqXHR.statusText);
+              
+                  },
+          statusCode: {
+            404: function() {
+            alert( "page not found" );
+                            }
+                      }        
         
         });
         

@@ -42,38 +42,22 @@
    			select * from rsosa.autos where cod_colaborador = <cfqueryparam cfsqltype="cf_sql_varchar" value="#colaboradores.data[i].cod_colaborador#">
    	</cfquery>
    	
-   	<cfset colaboradores.data[i].autos = estructura(autos)>	
+   	<cfset colaboradores.data[i].autos = estructura(autos)>
+   <!---	<cfinvoke method="QueryToStruct" component="Eventos3.Eventos" returnvariable="autosR" >
+	<cfinvokeargument name="query" value="#autos#" >
+  	</cfinvoke>--->
+   <!---	<cfset colaboradores.data[i].autos = autosR>	--->
    	
    	<cfquery name="equipo">
    		select * from rsosa.colaboradores where supervisor = <cfqueryparam cfsqltype="cf_sql_varchar" value="#colaboradores.data[i].cod_colaborador#">
    	</cfquery>
-   	   <!---<cfif equipo.RecordCount GT 0 >
-   	   	<cfset colaboradores.data[i].equipo = estructura(equipo)>	
-   	   	<cfelse>
-   	   	<cfset colaboradores.data[i].equipo = "">	
-   	   </cfif>--->
+   	
    		<cfset colaboradores.data[i].equipo = estructura(equipo)>	
    		
 	</cfloop>
 	
 	
-  <!--- <cfloop query="asistentesQ">
-   	    
-   		<cfif asistentesQ.hijos EQ 'S'>
-     	<cfquery name="hijosQ">
-     		select * from rsosa.hijos where cod_colaborador = <cfqueryparam cfsqltype="cf_sql_varchar" value="#asistentesQ.cod_colaborador#">
-     	</cfquery>
-     	    <!---<cfset colaboradores.data.hijosA = structnew()>--->
-     	    <cfset hijosp = estructura(hijosQ)>
-     		<cfset colaboradores.data[asistentesQ.CurrentRow].hijosA = hijosp>
-   		</cfif>
-   		<!---<cfquery name="autos">
-   			select * from rsosa.autos where cod_colaborador = <cfqueryparam cfsqltype="cf_sql_varchar" value="#asistentesQ.cod_colaborador#">
-   		</cfquery>
-   		    <cfset colaboradores.data.autos = structnew()>
-     	    <cfset autosp = estructura(autos)>
-   			<cfset colaboradores.data[asistentesQ.CurrentRow].autos = autosp>--->
-   </cfloop>--->
+ 
 	
 		
 	
@@ -84,8 +68,9 @@
   	    </cfoutput>
   	</cfcatch>
   </cftry>		
-<!---<cfdump var="#colaboradores#" >	--->
+<!---<cfdump var="#colaboradores#" >--->
 <cfreturn colaboradores>
 	
 </cffunction>
+
 </cfcomponent>
