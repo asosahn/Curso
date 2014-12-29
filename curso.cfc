@@ -76,7 +76,7 @@
 		<cfset colaboradores[i].AUTOST = deserializeJSON(serializeJSON(autos))>
 		
 	</cfloop>
-	
+	<cfdump var="#colaboradores#">
 	<cfreturn colaboradores>
 	
 </cffunction>

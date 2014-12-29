@@ -1,6 +1,59 @@
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('fonts/OpenSans-Regular-webfont.eot');
+    src: url('fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fonts/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('icon/icomoon.eot?-gu47p8');
+	src:url('icon/icomoon.eot?#iefix-gu47p8') format('embedded-opentype'),
+		url('icon/icomoon.woff?-gu47p8') format('woff'),
+		url('icon/icomoon.ttf?-gu47p8') format('truetype'),
+		url('icon/icomoon.svg?-gu47p8#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	text-decoration: none;
+
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pen:before {
+	content: "\e908";
+}
+.icon-star-full:before {
+	content: "\e9d9";
+}
+.icon-arrow-up2:before {
+	content: "\ea3a";
+}
+.icon-arrow-down2:before {
+	content: "\ea3e";
+}
+
+
 body{
 	background: #EEEEEE;
-	font-family: Arial;
+	font-family: 'open_sansregular';
 	font-size: 16px;
 }
 
@@ -63,6 +116,7 @@ nav {
 	margin: 0;
 	padding: 0em 0.5em;
 	position: relative;
+	box-shadow: rgba(0,0,0,0.5) 0px 0px 5px;
 	/*border: 1px solid red;*/
 }
 
@@ -99,14 +153,14 @@ nav ul #publicar_nav {
 	/*border: 1px solid red;*/
 	position: absolute;
 	right: 0;
-	top: -0.3em;
+	top: -0.2em;
 }
 
 nav ul #publicar_nav a {
 	background: #22BCE0;
 	padding: 0.8em;
 	box-shadow: rgba(0,0,0,0.5) 5px 5px 20px;
-	border-radius: 0.2em;
+	border-radius: 0.3em;
 	font-style: italic;
 	text-shadow: rgba(0,0,0,0.5) 2px 2px 5px;
 	/*width: 4em;*/
@@ -176,6 +230,20 @@ footer p:last-child {
 	float: left;
 }
 
+#contenido .item .votacion .down {
+	color: red;
+}
+
+#contenido .item .votacion .up {
+	color: green;
+
+}
+
+#contenido .item .votacion .guardar_item{
+	color: #f4d82c;
+	font-size: 1.5em;
+}
+
 #contenido .item .imagen_item{
 	margin: 0;
 	float: left;
@@ -202,16 +270,23 @@ footer p:last-child {
 	/*border: 1px solid red;*/
 	border-radius: 0 0 0.5em 0.5em;
 	top: 100%;
-	left: 5%;
+	/*left: 5%;*/
 	background: white;
-	width: 90%;
+	width: 100%;
 	margin-top: 3px;
-	padding: 0.2em 0.5em;
+	padding: 0.2em 0em 0 0;
 }
 
 #contenido .item .votacion .comentarios_item,
 #contenido .item .votacion .guardar_item {
 	float: right;
+}
+
+@media (max-width: 600px) {
+   nav {
+	padding: 0em 8em 0em 0em;
+	
+}
 }
 
 
