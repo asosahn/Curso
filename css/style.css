@@ -39,6 +39,7 @@
 
 .icon-pen:before {
 	content: "\e908";
+	margin-right: 0.2em;
 }
 .icon-star-full:before {
 	content: "\e9d9";
@@ -47,6 +48,7 @@
 	content: "\ea3a";
 }
 .icon-arrow-down2:before {
+
 	content: "\ea3e";
 }
 
@@ -206,6 +208,13 @@ footer p:last-child {
 	margin-bottom: 3em;
 }
 
+#contenido .item:hover{
+background: #FFF8DC;
+/*border: 3px solid yellow;*/
+/*zoom: 1.2;*/
+
+}
+
 #contenido .item .autor_item {
 	color: #AAA;
 }
@@ -232,16 +241,20 @@ footer p:last-child {
 
 #contenido .item .votacion .down {
 	color: red;
+	margin-left: 0.4em;
 }
 
 #contenido .item .votacion .up {
 	color: green;
-
+	
 }
 
 #contenido .item .votacion .guardar_item{
-	color: #f4d82c;
+	color: #FFBE2C;
 	font-size: 1.5em;
+	margin: 0 0.8em 0.1em 0;
+	/*top: -0.1em;
+	position: relative;*/
 }
 
 #contenido .item .imagen_item{
